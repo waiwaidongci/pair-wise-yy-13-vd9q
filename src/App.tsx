@@ -1,4 +1,5 @@
 import "./styles.css";
+import CleaningConsole from "./cleaning/CleaningConsole";
 
 const project = {
   "sourceNo": 7,
@@ -63,16 +64,9 @@ function App() {
         <span>{project.prompt}</span>
       </section>
 
-      <section className="metrics">
-        {project.metrics.map((metric: string, index: number) => (
-          <article key={metric}>
-            <small>{metric}</small>
-            <strong>{[28, 6, 14, 91][index] ?? 10}</strong>
-          </article>
-        ))}
-      </section>
+      <CleaningConsole />
 
-      <section className="workspace">
+      <section className="workspace legacy">
         <aside className="panel">
           <h2>{project.domain}分类</h2>
           <div className="chips">
@@ -86,7 +80,7 @@ function App() {
           <div className="heading">
             <div>
               <p>专业字段</p>
-              <h2>新增记录</h2>
+              <h2>小样工艺档案</h2>
             </div>
             <button className="primary">保存记录</button>
           </div>

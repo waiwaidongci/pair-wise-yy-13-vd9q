@@ -220,3 +220,418 @@ input {
     padding: 24px;
   }
 }
+
+/* ---------- 染杯清洗隔离流程 ---------- */
+
+.cleaning-console {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.cleaning-console .metrics {
+  margin: 0;
+}
+
+.rules-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  border-left: 5px solid var(--accent);
+}
+
+.rules-banner strong {
+  color: var(--secondary);
+}
+
+.rules-banner ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #526071;
+  line-height: 1.8;
+}
+
+.rules-banner .ghost {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 0 12px;
+  color: var(--secondary);
+  border-color: color-mix(in srgb, var(--secondary) 35%, var(--border));
+}
+
+.toolbar.panel-flush {
+  padding: 0;
+  box-shadow: none;
+  border: 0;
+  background: transparent;
+}
+
+.toolbar input {
+  max-width: 360px;
+}
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.grid th {
+  text-align: left;
+  color: #64748b;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.grid td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #edf1f7;
+  vertical-align: top;
+}
+
+.grid td small,
+.grid td .dim {
+  display: block;
+  margin-top: 4px;
+}
+
+.grid .seq {
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.row-blocked {
+  background: color-mix(in srgb, var(--primary) 4%, #ffffff);
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.tag-idle {
+  background: #eef2ff;
+  color: #4338ca;
+  border-color: #c7d2fe;
+}
+
+.tag-warn {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+
+.tag-ok {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.tag-done {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+.tag-info {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.tag-archived {
+  background: #f8fafc;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
+.depth {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.depth-light {
+  background: #f0f9ff;
+  color: #0369a1;
+}
+
+.depth-mid {
+  background: #fefce8;
+  color: #a16207;
+}
+
+.depth-dark {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.blockers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.blockers .dim {
+  width: 100%;
+}
+
+.ops {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ops button {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.dim {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.good {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.bad {
+  color: #be123c;
+  font-weight: 700;
+}
+
+.hint {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.empty {
+  padding: 18px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.cup-list {
+  display: grid;
+  gap: 12px;
+}
+
+.cup-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cup-card.selected {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--secondary) 25%, transparent);
+}
+
+.cup-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cup-label {
+  color: #64748b;
+}
+
+.cup-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.clean-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.inline {
+  display: flex;
+  gap: 8px;
+}
+
+.inline input {
+  min-height: 36px;
+}
+
+.inline button {
+  min-height: 36px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.rinse-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.receipt-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.receipt {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.receipt.archived {
+  opacity: 0.72;
+  background: #f8fafc;
+  border-style: dashed;
+}
+
+.receipt header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.receipt p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.rinse-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sub {
+  margin: 14px 0 8px;
+  color: #334155;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 92px 74px 1fr;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.timeline .time {
+  color: #94a3b8;
+}
+
+.event-type {
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.receipt-form {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 35%, var(--border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--secondary) 4%, #ffffff);
+  display: grid;
+  gap: 12px;
+}
+
+.receipt-form h4 {
+  margin: 0;
+}
+
+.receipt-form .wide {
+  grid-column: 1 / -1;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-row button {
+  padding: 0 12px;
+}
+
+.seg {
+  display: flex;
+  gap: 6px;
+}
+
+.seg button {
+  flex: 1;
+  min-height: 42px;
+}
+
+.seg .seg-on {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+}
+
+.grow-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.grow-end button {
+  width: 100%;
+  min-height: 42px;
+}
+
+.workspace.legacy {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 980px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
